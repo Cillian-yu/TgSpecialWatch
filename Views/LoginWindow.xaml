@@ -1,0 +1,88 @@
+<Window x:Class="TgSpecialWatch.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="Telegram 登录"
+        Height="520" Width="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{DynamicResource AppBackgroundBrush}">
+    <Border Style="{StaticResource AppWindowRootStyle}">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+                <Button x:Name="SubmitCodeButton"
+                        Style="{StaticResource AppDefaultButton}"
+                        hc:IconElement.Geometry="{StaticResource IconSend}"
+                        Content="提交验证码"
+                        Margin="0,0,8,0"
+                        IsEnabled="False"
+                        Click="SubmitCodeButton_Click"/>
+                <Button x:Name="LoginButton"
+                        Style="{StaticResource AppPrimaryButton}"
+                        hc:IconElement.Geometry="{StaticResource IconLogin}"
+                        Content="登录并监听"
+                        Click="LoginButton_Click"/>
+            </StackPanel>
+
+            <Border Style="{StaticResource AppCardStyle}">
+                <StackPanel>
+                    <DockPanel Margin="0,0,0,16">
+                        <Path DockPanel.Dock="Left"
+                              Data="{StaticResource IconKey}"
+                              Fill="{DynamicResource AppTitleBrush}"
+                              Width="18" Height="18"
+                              Stretch="Uniform"
+                              Margin="0,2,10,0"
+                              VerticalAlignment="Top"/>
+                        <StackPanel>
+                            <TextBlock Text="账号登录" Style="{StaticResource AppSectionTitleStyle}"/>
+                            <TextBlock Text="在 my.telegram.org 申请 api_id / api_hash 后填写。"
+                                       Style="{StaticResource AppMutedTextStyle}"
+                                       TextWrapping="Wrap"
+                                       Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </DockPanel>
+
+                    <hc:TextBox x:Name="ApiIdBox"
+                                hc:InfoElement.Title="api_id"
+                                hc:InfoElement.Necessary="True"
+                                Margin="0,0,0,12"/>
+                    <hc:TextBox x:Name="ApiHashBox"
+                                hc:InfoElement.Title="api_hash"
+                                hc:InfoElement.Necessary="True"
+                                Margin="0,0,0,12"/>
+                    <hc:TextBox x:Name="PhoneBox"
+                                hc:InfoElement.Title="手机号"
+                                hc:InfoElement.Necessary="True"
+                                hc:InfoElement.Placeholder="+8613xxxxxxxxx"
+                                Margin="0,0,0,12"/>
+                    <hc:TextBox x:Name="CodeBox"
+                                hc:InfoElement.Title="验证码 / 两步验证密码"
+                                hc:InfoElement.Placeholder="登录过程中按提示填写"
+                                IsEnabled="False"
+                                Margin="0,0,0,12"/>
+
+                    <Border Background="#FF141414"
+                            BorderBrush="{DynamicResource AppCardBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Padding="12">
+                        <DockPanel>
+                            <Path DockPanel.Dock="Left"
+                                  Data="{StaticResource IconInfo}"
+                                  Fill="{DynamicResource AppMutedTextBrush}"
+                                  Width="14" Height="14"
+                                  Stretch="Uniform"
+                                  Margin="0,2,8,0"
+                                  VerticalAlignment="Top"/>
+                            <TextBlock x:Name="StatusText"
+                                       Text="等待登录"
+                                       Style="{StaticResource AppMutedTextStyle}"
+                                       TextWrapping="Wrap"/>
+                        </DockPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

@@ -1,0 +1,17 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+appsettings.local.json
+**/session.dat
+**/session.dat.*
+*.session
+android/.gradle/
+android/**/build/
+android/local.properties
+
+# temp gradle downloads
+android/.tmp-gradle*.zip
+android/.tmp-gradle-*/
+
